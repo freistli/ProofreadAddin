@@ -1,3 +1,11 @@
+# Proofread Word Add-In
+
+After setup backend proofread service (requires Azure OpenAI, Azure AI Document Intellegency, Azure Web App resources), users can use this word add-in to proofread content easily:
+
+<img width="480" alt="image" src="https://github.com/freistli/ProofreadAddin/assets/8623897/993d0290-bb65-4eaa-9034-36ded8366897">
+
+
+
 # Quick Start
 
 ## Publish Proofread Addin as Static Web App

@@ -1,0 +1,63 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please <a target="_blank"
+                href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">sideload</a>
+            your add-in to see app body.</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <table>
+            <tr>
+                <td>
+                    <div role="button" id="run" style="display: none" class="ms-welcome__action ms-Button ms-Button--hero ms-font-l">
+                        <span class="ms-Button-label">Choose Selected</span>
+                    </div>
+                </td>
+                <td>
+                    <div role="button" id="Proofreading" style="display: none" class="ms-welcome__action ms-Button ms-Button--hero ms-font-l">
+                        <span class="ms-Button-label">Proofreading</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <div class="item-container" style="display: none;">
+        <p><label id="item-subject" class="ms-font-l"></label></p>
+        <b>Content</b>
+        <p><textarea id="item-content" class="ms-font-m"></textarea></p>
+        <b>Proofreading Result</b>
+        <p><textarea id="item-proofread" class="ms-font-m"></textarea></p>
+    </div>
+    <div>
+        <!--iframe id="proofreading-iframe" src="https://true-repeatedly-cockatoo.ngrok-free.app/"  style="width: 100%; height: 1000px;"></iframe-->
+        <iframe id="proofreading-iframe" src="https://proofreadhub.azurewebsites.net/proofreadaddin/" style="width: 100%; height: 1000px;"></iframe>
+    </div>
+</body>
+
+</html>

@@ -9,10 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contoso Task Pane Add-in</title>
-    <script
-    src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-    crossorigin="anonymous"></script>
+ 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
@@ -55,9 +52,15 @@
         <p><textarea id="item-proofread" class="ms-font-m"></textarea></p>
     </div>
     <div>
-        <!--iframe id="proofreading-iframe" src="https://true-repeatedly-cockatoo.ngrok-free.app/"  style="width: 100%; height: 1000px;"></iframe-->
-        <iframe id="proofreading-iframe" src="https://proofreadhub.azurewebsites.net/proofreadaddin/" style="width: 100%; height: 1000px;"></iframe>
+        <input type="text" id="iframe-src" name="iframe-src" placeholder="Proofread Service URL">
+        <button id="update-iframe-src" class="ms-Button ms-Button--primary">
+            <span class="ms-Button-label">Connect</span> 
+        </button>
     </div>
+    <div>
+        <iframe id="proofreading-iframe" src="" style="width: 100%; height: 1000px;"></iframe>
+    </div>
+   
 </body>
 
 </html>

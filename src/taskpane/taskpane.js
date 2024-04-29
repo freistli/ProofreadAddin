@@ -7,12 +7,56 @@
 
 import { client } from "@gradio/client";
 
+function setInLocalStorage(key, value) {
+  const myPartitionKey = Office.context.partitionKey;
+
+  // Check if local storage is partitioned. 
+  // If so, use the partition to ensure the data is only accessible by your add-in.
+  if (myPartitionKey) {
+    localStorage.setItem(myPartitionKey + key, value);
+  } else {
+    localStorage.setItem(key, value);
+  }
+}
+
+function getFromLocalStorage(key) {
+  const myPartitionKey = Office.context.partitionKey;
+
+  // Check if local storage is partitioned.
+  if (myPartitionKey) {
+    return localStorage.getItem(myPartitionKey + key);
+  } else {
+    return localStorage.getItem(key);
+  }
+}
+
+ 
+export async function updateIframeSrc() {
+    const iframeSrcInput = document.getElementById('iframe-src');
+    const iframe = document.getElementById('proofreading-iframe');
+    iframe.src = iframeSrcInput.value+"/proofreadaddin/";
+    setInLocalStorage("serviceUrl",iframeSrcInput.value); 
+    console.log("Save Service URL:" + iframeSrcInput.value);
+}
+
+
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
+    
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("run").onclick = run;
     document.getElementById("Proofreading").onclick = proofreading;
+    document.getElementById("update-iframe-src").onclick = updateIframeSrc;
+
+    const serviceUrl = getFromLocalStorage("serviceUrl");
+
+    console.log("Get Stored Service URL:" + serviceUrl);
+
+    if (serviceUrl) {
+      document.getElementById("iframe-src").value = serviceUrl;
+      updateIframeSrc();
+    }
 
     window.addEventListener('message', event => {
       console.log("gradio posted message arrived");

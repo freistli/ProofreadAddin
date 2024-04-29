@@ -6,6 +6,10 @@ After setup backend proofread service (requires Azure OpenAI, Azure AI Document 
 
 
 
+https://github.com/freistli/ProofreadAddin/assets/8623897/4300701b-bad7-403f-9b30-d81e00fca35b
+
+
+
 # Quick Start
 
 ## Publish Proofread Addin as Static Web App

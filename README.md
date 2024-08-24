@@ -1,6 +1,6 @@
 # Proofread Word Add-In
 
-After setup backend proofread service (requires Azure OpenAI, Azure AI Document Intellegency, Azure Web App resources), users can use this word add-in to proofread content easily:
+After setup [Advanced RAG service](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/exploring-the-advanced-rag-retrieval-augmented-generation/ba-p/4197836), users can use this word add-in to proofread content easily:
 
 <img width="480" alt="image" src="https://github.com/freistli/ProofreadAddin/assets/8623897/993d0290-bb65-4eaa-9034-36ded8366897">
 
